@@ -4,7 +4,6 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// ✅ Get all users (Librarian only)
 router.get("/", protect, async (req, res) => {
   try {
     const users = await User.find().select("-password");

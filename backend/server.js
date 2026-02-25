@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import bookRoutes from "./routes/bookRoutes.js";
 import borrowRoutes from "./routes/borrowRoutes.js";
-import userRoutes from "./routes/userRoutes.js"; // ✅ ADD THIS
 
 dotenv.config();
 
@@ -23,6 +22,6 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/books", bookRoutes);
 app.use("/api/borrow", borrowRoutes);
-app.use("/api/users", userRoutes); // ✅ ADD THIS
+app.use("/api/users", userRoutes); //
 
 app.listen(5000, () => console.log("Server running on port 5000"));
