@@ -14,19 +14,28 @@ const LibDashboard = () => {
           Authorization: `Bearer ${token}`,
         };
 
-        const booksRes = await fetch("http://localhost:5000/api/books", {
-          headers,
-        });
+        const booksRes = await fetch(
+          "https://librarydigi.onrender.com/api/books",
+          {
+            headers,
+          },
+        );
         const booksData = await booksRes.json();
 
-        const usersRes = await fetch("http://localhost:5000/api/users", {
-          headers,
-        });
+        const usersRes = await fetch(
+          "https://librarydigi.onrender.com/api/users",
+          {
+            headers,
+          },
+        );
         const usersData = await usersRes.json();
 
-        const borrowRes = await fetch("http://localhost:5000/api/borrow", {
-          headers,
-        });
+        const borrowRes = await fetch(
+          "https://librarydigi.onrender.com/api/borrow",
+          {
+            headers,
+          },
+        );
         const borrowData = await borrowRes.json();
 
         setBooks(booksData);

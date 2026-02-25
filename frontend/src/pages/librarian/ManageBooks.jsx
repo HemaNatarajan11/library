@@ -10,9 +10,12 @@ const ManageBooks = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/books", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await fetch(
+          "https://librarydigi.onrender.com/api/books",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          },
+        );
 
         const data = await response.json();
         setBooks(data);
@@ -26,10 +29,13 @@ const ManageBooks = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/books/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await fetch(
+        `https://librarydigi.onrender.com/api/books/${id}`,
+        {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
 
       if (!response.ok) {
         const data = await response.json();
@@ -57,7 +63,7 @@ const ManageBooks = () => {
   const handleSave = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/books/${editId}`,
+        `https://librarydigi.onrender.com/api/books/${editId}`,
         {
           method: "PUT",
           headers: {

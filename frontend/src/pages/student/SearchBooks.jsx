@@ -15,14 +15,17 @@ const SearchBooks = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:5000/api/borrow", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        "https://librarydigi.onrender.com/api/borrow",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ bookId }),
         },
-        body: JSON.stringify({ bookId }),
-      });
+      );
 
       const data = await response.json();
 
@@ -33,7 +36,7 @@ const SearchBooks = () => {
 
       alert("Book issued successfully!");
 
-      const updated = await fetch("http://localhost:5000/api/books");
+      const updated = await fetch("https://librarydigi.onrender.com/api/books");
       const updatedData = await updated.json();
       setBooks(updatedData);
     } catch (error) {
@@ -45,7 +48,9 @@ const SearchBooks = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/books");
+        const response = await fetch(
+          "https://librarydigi.onrender.com/api/books",
+        );
         const data = await response.json();
         setBooks(data);
       } catch (error) {

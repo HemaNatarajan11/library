@@ -31,16 +31,19 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://librarydigi.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: loginData.username,
+            password: loginData.password,
+          }),
         },
-        body: JSON.stringify({
-          username: loginData.username,
-          password: loginData.password,
-        }),
-      });
+      );
 
       const data = await response.json();
 
