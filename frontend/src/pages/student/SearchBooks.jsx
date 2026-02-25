@@ -33,7 +33,6 @@ const SearchBooks = () => {
 
       alert("Book issued successfully!");
 
-      // Refresh books
       const updated = await fetch("http://localhost:5000/api/books");
       const updatedData = await updated.json();
       setBooks(updatedData);

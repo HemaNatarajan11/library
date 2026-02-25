@@ -7,7 +7,6 @@ const ManageBooks = () => {
 
   const token = localStorage.getItem("token");
 
-  // ✅ Fetch Books From Backend
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -25,7 +24,6 @@ const ManageBooks = () => {
     fetchBooks();
   }, [token]);
 
-  // ✅ Delete Book
   const handleDelete = async (id) => {
     try {
       const response = await fetch(`http://localhost:5000/api/books/${id}`, {
@@ -44,7 +42,6 @@ const ManageBooks = () => {
     }
   };
 
-  // ✅ Edit Click
   const handleEditClick = (book) => {
     setEditId(book._id);
     setEditData(book);
@@ -57,7 +54,6 @@ const ManageBooks = () => {
     });
   };
 
-  // ✅ Save Edited Book
   const handleSave = async () => {
     try {
       const response = await fetch(
@@ -83,7 +79,6 @@ const ManageBooks = () => {
         return;
       }
 
-      // Update UI
       setBooks(books.map((book) => (book._id === editId ? data : book)));
 
       setEditId(null);

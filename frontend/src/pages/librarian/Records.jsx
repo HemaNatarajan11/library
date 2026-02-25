@@ -5,7 +5,6 @@ const Records = () => {
 
   const token = localStorage.getItem("token");
 
-  // ✅ Fetch all borrow records
   useEffect(() => {
     const fetchRecords = async () => {
       if (!token) return;
@@ -21,7 +20,7 @@ const Records = () => {
         }
 
         const data = await response.json();
-        console.log("API response:", JSON.stringify(data[0], null, 2)); // ← add this line
+        console.log("API response:", JSON.stringify(data[0], null, 2));
 
         setRecords(data);
       } catch (error) {

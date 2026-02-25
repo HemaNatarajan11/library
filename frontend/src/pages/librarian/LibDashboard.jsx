@@ -14,19 +14,16 @@ const LibDashboard = () => {
           Authorization: `Bearer ${token}`,
         };
 
-        // Fetch Books
         const booksRes = await fetch("http://localhost:5000/api/books", {
           headers,
         });
         const booksData = await booksRes.json();
 
-        // Fetch Users
         const usersRes = await fetch("http://localhost:5000/api/users", {
           headers,
         });
         const usersData = await usersRes.json();
 
-        // Fetch Borrow Records
         const borrowRes = await fetch("http://localhost:5000/api/borrow", {
           headers,
         });
@@ -43,7 +40,6 @@ const LibDashboard = () => {
     fetchData();
   }, [token]);
 
-  // 📊 Calculations
   const totalBooks = books.length;
 
   const totalAuthors = [...new Set(books.map((book) => book.author))].length;

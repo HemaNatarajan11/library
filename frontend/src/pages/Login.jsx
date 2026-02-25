@@ -10,7 +10,6 @@ const Login = () => {
     role: "student",
   });
 
-  // Auto redirect if already logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user"));
@@ -50,13 +49,11 @@ const Login = () => {
         return;
       }
 
-      //  Save token & user
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
       alert("Login successful");
 
-      //  Redirect based on role from backend
       if (data.user.role === "librarian") {
         navigate("/librarian/LibDashboard");
       } else {

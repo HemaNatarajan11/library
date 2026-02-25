@@ -36,7 +36,6 @@ const MyBooks = () => {
 
   const today = new Date();
 
-  // ✅ Calculate fine (₹5 per day late)
   const calculateFine = (dueDate) => {
     const due = new Date(dueDate);
     if (today <= due) return 0;

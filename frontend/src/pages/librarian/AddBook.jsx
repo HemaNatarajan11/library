@@ -42,11 +42,10 @@ const AddBook = () => {
 
       let data;
 
-      // Try parsing JSON safely
       try {
         data = await response.json();
       } catch (err) {
-        const text = await response.text(); // backend returned HTML (error page)
+        const text = await response.text();
         console.error("Backend did not return JSON:", text);
         alert("Server error: check backend logs");
         return;
@@ -59,7 +58,6 @@ const AddBook = () => {
 
       alert("Book added successfully!");
 
-      // Reset form
       setBook({
         title: "",
         author: "",
