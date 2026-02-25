@@ -22,6 +22,6 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/books", bookRoutes);
 app.use("/api/borrow", borrowRoutes);
-app.use("/api/users", userRoutes); //
+app.use("/api/users", userRoutes);
 
 app.listen(5000, () => console.log("Server running on port 5000"));
